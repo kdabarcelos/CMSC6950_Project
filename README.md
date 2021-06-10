@@ -14,14 +14,3 @@ conda create -n pymagicc
 conda activate pymagicc
 conda install pymagicc
 ```
-
-Clone the third-party software repo:
-
-```
-git clone https://github.com/openscm/pymagicc.git
-
-cd pymagicc
-make venv
-./venv/bin/pip install --editable .
-./venv/bin/jupyter-notebook notebooks/Example.ipynb
-```
