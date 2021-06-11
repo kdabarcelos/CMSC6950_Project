@@ -16,7 +16,7 @@ Funtions:
 
 ### Software Setup
 
-Prior the following steps, install conda with Miniforge, which can be found [here](https://github.com/conda-forge/miniforge).
+Prior the following steps, it is necessary to install conda with Miniforge, which can be found [here](https://github.com/conda-forge/miniforge).
 
 
 Create conda environment with the software name and acitivate:   
@@ -29,11 +29,20 @@ conda activate tidynamics
 Install Python, NumPy, and matplotlib to use tidynamics.
 
 ```
-conda install python numpy matplotlib
+conda install python numpy matplotlib pytest
 ```
 
 Install tidynamics
 
 ```
 conda install -c conda-forge tidynamics
+```
+
+In order to test everything has been installed properly, first clone the tidynamics, and run the pytest in test/:
+
+
+```
+git clone https://github.com/pdebuyl-lab/tidynamics
+cd tidynamics/tests
+python3 -m pytest
 ```
