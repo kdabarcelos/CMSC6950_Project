@@ -31,3 +31,9 @@ Install Python and NumPy to use tidynamics.
 ```
 conda install python numpy
 ```
+
+Install tidynamics
+
+```
+conda install -c conda-forge tidynamics
+```
