@@ -6,7 +6,7 @@ Karina Barcelos
 
 ### Software topic: tidynamics
 
-Funtions:
+Functions:
 
 1.
 
@@ -15,12 +15,24 @@ Funtions:
 3.
 
 
-### Software Setup
+### Conda Setup
 
-Prior the following steps, it is necessary to install conda with Miniforge, which can be found [here](https://github.com/conda-forge/miniforge).
+Prior the tidynamics setup, it is necessary to install conda from Miniforge installer, which can be found to download [here](https://github.com/conda-forge/miniforge). Use wget [your OS, architeture] and then run as below.
 
+```
+wget [past the link here replacing within and the brackets]
+bash Miniforge3-Linux-x86_64.sh
+```
 
-Create conda environment with the software name and acitivate:   
+Check if conda was properly installed with --version.
+
+```
+conda --version
+```
+
+### Tidynamics Software Setup
+
+Then create conda environment with the software name and activate:   
 
 ```
 conda create -n tidynamics
@@ -39,8 +51,9 @@ Install tidynamics
 conda install -c conda-forge tidynamics
 ```
 
-In order to test if everything has been installed properly, first clone the tidynamics, and run the pytest in tests/:
+### Tidynamics Testing
 
+In order to test if everything has been installed properly, first clone the tidynamics, and run the pytest in tests/:
 
 ```
 git clone https://github.com/pdebuyl-lab/tidynamics
