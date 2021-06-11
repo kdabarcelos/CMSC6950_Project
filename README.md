@@ -26,10 +26,10 @@ conda create -n tidynamics
 conda activate tidynamics
 ```
 
-Install Python and NumPy to use tidynamics.
+Install Python, NumPy, and matplotlib to use tidynamics.
 
 ```
-conda install python numpy
+conda install python numpy matplotlib
 ```
 
 Install tidynamics
