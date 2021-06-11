@@ -3,7 +3,7 @@ Course project for CMSC6950 Spring 2021
 
 Karina Barcelos
 
-###Software topic: tidynamics
+### Software topic: tidynamics
 
 Funtions:
 
@@ -26,7 +26,7 @@ conda create -n tidynamics
 conda activate tidynamics
 ```
 
-Install Python, NumPy, and matplotlib to use tidynamics.
+Install Python, NumPy, Matplotlib, and Pytest to use tidynamics:
 
 ```
 conda install python numpy matplotlib pytest
@@ -38,7 +38,7 @@ Install tidynamics
 conda install -c conda-forge tidynamics
 ```
 
-In order to test everything has been installed properly, first clone the tidynamics, and run the pytest in test/:
+In order to test if everything has been installed properly, first clone the tidynamics, and run the pytest in test/:
 
 
 ```
