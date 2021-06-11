@@ -3,6 +3,7 @@ Course project for CMSC6950 Spring 2021
 
 Karina Barcelos
 
+
 ### Software topic: tidynamics
 
 Funtions:
@@ -38,7 +39,7 @@ Install tidynamics
 conda install -c conda-forge tidynamics
 ```
 
-In order to test if everything has been installed properly, first clone the tidynamics, and run the pytest in test/:
+In order to test if everything has been installed properly, first clone the tidynamics, and run the pytest in tests/:
 
 
 ```
