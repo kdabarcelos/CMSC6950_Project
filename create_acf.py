@@ -23,13 +23,16 @@ output = args[1]
 
 def main(input, output):
     '''
-    Create intermediate file with acf data from bond length
+    Create intermediate file with time, bond length, and acf data from length
     '''
+    #load input file and create data frame with time and length
     input_data = np.loadtxt(input)
     df = pd.DataFrame(input_data, columns=["Time", "Length"])
+    #apply autocorrection funtion (acf) in length
     result = tidynamics.acf(df["Length"])
-    np.savetxt(output, result)
+    #create new column with acf
+    df["AutoCorr"] = result
+    np.savetxt(output, df)
 
 if __name__ == "__main__":
     main(input,output)
-
