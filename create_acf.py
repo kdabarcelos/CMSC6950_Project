@@ -32,7 +32,8 @@ def main(input, output):
     result = tidynamics.acf(df["Length"])
     #create new column with acf
     df["AutoCorr"] = result
-    np.savetxt(output, df)
+    #saving output with tab delimiter and adding headers
+    np.savetxt(output, df, delimiter='\t', header='Time\tLength\tAutocorrelation')
 
 if __name__ == "__main__":
     main(input,output)
