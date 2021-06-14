@@ -1,6 +1,8 @@
+#Task 1 - example 1: analyze the CO bond stretching motion using its time autocorrelation function (acf) from its time series of a MD simulation.
+
 #About this script
-        #It is necessary to run create_acf.py first before plotting to obtain the intermediate files with acf values of C=O and C-H bond lengths
-	#It creates one 2x2 plot with length versus time of C=O and C-H bond lenths, and their autocorrelation funtion (acf)
+        #It creates one 2x2 plot with length versus time of C=O and C-H bond lenths, and their autocorrelation funtion (acf)
+	#It is necessary to run create_acf.py first before plotting to obtain the intermediate files with acf values of C=O and C-H bond lengths
 
 #Run command example [python3 script.py input_file1.txt input_file2.txt output_file_name.txt]
         #$python3 make_plot_acf.py CO_acf CH_acf CO_CH_lengths_acf.txt
