@@ -8,11 +8,9 @@ Karina Barcelos
 
 Functions:
 
-1.
+1. Serve as a reference implementation for common algorithms that are useful for molecular and stochastic simulations.
 
-2. 
-
-3.
+2. Performs the computation of mean-square displacements and correlation functions using the Fast Correlation Algorithm.
 
 ---
 ### Conda Setup
