@@ -39,10 +39,10 @@ conda create -n tidynamics
 conda activate tidynamics
 ```
 
-Install Python, NumPy, Matplotlib, and Pytest (dependencies) to use tidynamics:
+Install Python, NumPy, Matplotlib, Pytest, and Pandas (dependencies) to use tidynamics:
 
 ```
-conda install python numpy matplotlib pytest
+conda install python numpy matplotlib pytest pandas
 ```
 
 Install tidynamics:
