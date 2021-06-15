@@ -19,6 +19,5 @@ msd.txt: create_msd_random_walk.py
 	python3 create_msd_random_walk.py msd_random_walk.txt
 
 clean:
-	#clean all expect the input Molecular dynamics data
-	rm msd_random_walk.txt CH_acf.txt CO_acf.txt
+	rm *.txt
 	rm *.png
