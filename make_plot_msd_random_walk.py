@@ -1,3 +1,13 @@
+#Task 2 - example 1: analyze a random walk using mean-squared displacement (msd)
+
+#About this script
+        #It creates one 1x2 plot with random walk coordinates and its MSD
+        #It is necessary to run create_msd_random_walk.py first before plotting to obtain the intermediate files with msd values
+
+#Run command example [python3 script.py msd_input_file.txt output_file_name.png]
+        #$python3 make_plot_msd_random_walk.py msd_test.txt msd_test.png
+
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import sys
