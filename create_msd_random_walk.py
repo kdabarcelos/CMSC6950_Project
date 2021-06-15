@@ -1,7 +1,7 @@
-#Task 2 - example 1: analyze a random walk using mean-squared displacement (msd).
+#Task 2 - example 1: analyze a random walk (1000 steps) using mean-squared displacement (msd).
 
 #About this script
-        #It generates an intermediate file with msd results
+        #It generates an intermediate file with (x,y) coordinates and its msd results
         
 #Run command-line [python3 script.py output_file_name.txt]
         #Example: $python create_msd_random_walk.py msd_random_walk.txt
@@ -19,7 +19,7 @@ output = args[0]
 #One random walk
 def randwalk(x,y):
     '''
-    Generate random walk (x,y) coordinates
+    Generate random walk (x,y) coordinates from 2*pi random theta values wherein x is cosine(theta) and y is sine(theta)
     '''
     theta=2*math.pi*np.random.rand()
     x+=math.cos(theta);
@@ -29,7 +29,7 @@ def randwalk(x,y):
 
 def main(output):
     '''
-    Create intermediate file 
+    Create intermediate file with X, Y, and MSD in 1000 steps 
     '''
     a = np.zeros((1000,2), dtype=np.float64)
     #Starting from origin 
