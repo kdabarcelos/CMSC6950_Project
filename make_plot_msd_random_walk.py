@@ -27,7 +27,7 @@ def main(input, output):
 
     #subplot 1x2, and size with wspace
     fig, axs = plt.subplots(1,2,figsize=(10,5))
-    plt.subplots_adjust(wspace=0.40)
+    plt.subplots_adjust(wspace=0.30)
 
     #setting X, Y from df for the first subplot with tile, locators, and grid
     axs[0].plot(df["x"],df["y"])
