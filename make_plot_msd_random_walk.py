@@ -17,7 +17,7 @@ def main(input, output):
     plt.subplots_adjust(wspace=0.40)
 
     axs[0].plot(df["x"],df["y"])
-    axs[0].set_title("Random walk coordinates")
+    axs[0].set_title("2D Random Walk Coordinates")
     axs[0].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].grid()
@@ -28,9 +28,9 @@ def main(input, output):
     axs[1].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[1].grid()
  
-    plt.setp(axs[0], xlabel='Angle (theta)')
-    plt.setp(axs[0], ylabel='Angle (theta)')
-    plt.setp(axs[1], xlabel='Mean square displacement')
+    plt.setp(axs[0], xlabel='Coordinate X')
+    plt.setp(axs[0], ylabel='Coordinate Y')
+    plt.setp(axs[1], xlabel='Mean Square Displacement of the random walk')
     plt.setp(axs[1], ylabel='Timesteps')
     plt.show()
     plt.savefig(output, dpi = 300)
