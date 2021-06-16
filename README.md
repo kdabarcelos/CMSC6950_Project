@@ -4,7 +4,7 @@ Course project for CMSC6950 Spring 2021
 Karina Barcelos
 
 ---
-### Software topic: tidynamics
+### Project topic: tidynamics
 
 Functions:
 
@@ -13,24 +13,24 @@ Functions:
 2. Performs the computation of mean-square displacements and correlation functions using the Fast Correlation Algorithm.
 
 ---
-### Conda Setup
+### Conda Software Setup
 
-Prior the tidynamics setup, it is necessary to install conda from Miniforge installer, which can be found to download [here](https://github.com/conda-forge/miniforge). Use wget [your OS, architeture] and then run as below:
+Prior the tidynamics setup, it is necessary to install conda from Miniforge installer, which can be found to download [here](https://github.com/conda-forge/miniforge). After copy the appropriate link regarding your OS and architeture, run below:
 
 ```
 wget [past the link here replacing within and the brackets]
 bash Miniforge3-Linux-x86_64.sh
 ```
 
-Check if conda was properly installed with `--version`:
+Check if conda has been properly installed with `--version`:
 
 ```
 conda --version
 ```
 ----
-### Tidynamics Software and Dependendcies Setup
+### Tidynamics Software and Dependencies Setup
 
-Then create conda environment with the software name and activate:   
+Then create conda environment with the chosen software name and activate:   
 
 ```
 conda create -n tidynamics
