@@ -16,7 +16,7 @@
 
 \section{Introduction}
 
-Tidynamics \cite{Buyl2018} calculates mean-square displacements (MSD) of a trajectory and correlation functions of input data using the Fast Correlation Algorithm. This package is beneficial for quantitatively evaluating dynamics of stochastic and molecular simulations from numerical trajectories, which depends only on Python and NumPy (utilizing arrays). 
+Tidynamics \cite{Buyl2018} calculates mean-square displacements (MSD) of a trajectory and correlation functions of input data using the Fast Correlation Algorithm. \cite{kneller1995nmoldyn} This package is beneficial for quantitatively evaluating dynamics of stochastic and molecular simulations from numerical trajectories, which depends only on Python and NumPy (utilizing arrays). The autocorrelation is a correlation of a variable with itself between two successive time intervals (time lags), while mean-square displacement is a deviation of the position of a certain particle regarding a reference position at time intervals. Both are defined by the respective relations below in tidynamics, where the angle brackets denote an average over time. \cite{kneller1995nmoldyn}
 
 The aim of this project was to implement two computational tasks of dynamical systems from a chosen open source package such as tidynamics\cite{Buyl2018}. For the first task, the autocorrelation funtion was computed for the bond length of C-H and C=O over 700 ns of a Molecular Dynamics (MD) simulation from a certain Tyrosine amino acid. For the second task,a random walk values and its mean-square displacement were generated. Several modules were utilized during the project, including, numpy, pandas, math, sys, and matplotlib. 
 
