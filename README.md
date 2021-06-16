@@ -15,7 +15,7 @@ Functions:
 ---
 ### Conda Software Setup
 
-Prior the tidynamics setup, it is necessary to install conda from Miniforge installer, which can be found to download [here](https://github.com/conda-forge/miniforge). After copy the appropriate link regarding your OS and architeture, run below:
+Prior the tidynamics setup, it is necessary to install conda from Miniforge installer, which can be found to download [here](https://github.com/conda-forge/miniforge). After copy the appropriate link regarding your OS and architeture, run as below:
 
 ```
 wget [past the link here replacing within and the brackets]
@@ -55,7 +55,7 @@ In order to test if everything has been installed properly, first clone the tidy
 
 ```
 git clone https://github.com/pdebuyl-lab/tidynamics
-cd tidynamics/tests
+cd tidynamics/tests/
 python3 -m pytest
 ```
 ---
