@@ -1,5 +1,6 @@
 #ignore files
 
 tidynamics/
-
+report.aux
+report.log
 
