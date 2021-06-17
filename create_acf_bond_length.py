@@ -13,16 +13,18 @@
         #Both files test800-1500ns-CH.xvg and test800-1500ns-CO.xvg show the length between C-H and C=O bonds, respecively.
         #The time in nanosecond (ns) from period of 800-1500 ns to ensure data analysis in the protein equilibrium.
 
-
+#importing modules used
 import numpy as np 
 import tidynamics 
 import pandas as pd 
 import sys
 
+#assigning arguments into input/out for the command-line
 args = sys.argv[1:]
 input = args[0]
 output = args[1]
 
+#defining main funtion
 def main(input, output):
     '''
     Create intermediate file with time, bond length, and acf data from length
@@ -34,7 +36,7 @@ def main(input, output):
     result = tidynamics.acf(df["Length"])
     #create new column with acf
     df["AutoCorr"] = result
-    #saving output with comma delimiter and adding headers
+    #saving output with comma delimiter and headers
     df.to_csv(output, index=False)
 
 if __name__ == "__main__":
