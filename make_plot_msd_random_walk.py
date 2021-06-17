@@ -43,8 +43,8 @@ def main(input, output):
     #setting X, Y from df for the first subplot with tile, locators, and grid
     axs[0].plot(df["x"],df["y"])
     axs[0].set_title("2D Random Walk Coordinates")
-    axs[0].plot(start[:,0],start[:,1],c="red",marker="+")
-    axs[0].plot(end[:,0],end[:,1],c="black",marker="o")
+    axs[0].plot(start[:,0],start[:,1],c="red",marker="x",markersize=10,markeredgewidth=2.5)
+    axs[0].plot(end[:,0],end[:,1],c="black",marker="o",markersize=7,markeredgewidth=2.5)
     axs[0].legend(["Path", "Start", "End"])
     axs[0].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].yaxis.set_major_locator(plt.MaxNLocator(7))
