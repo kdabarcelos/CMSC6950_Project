@@ -25,6 +25,11 @@ def main(input, output):
     #reading/importing input file
     df = pd.read_csv(input)
 
+    N=1000
+    msd = df["MSD"]
+    msd = msd[1:N//2]
+    
+    time = np.arrange(N)[1:N//2]
     #subplot 1x2, and size with wspace
     fig, axs = plt.subplots(1,2,figsize=(10,5))
     plt.subplots_adjust(wspace=0.30)
@@ -37,17 +42,19 @@ def main(input, output):
     axs[0].grid()
 
     #setting MSD from df for the second subplot with tile, locators, and grid
-    axs[1].plot(df["MSD"], 'tab:orange')
-    axs[1].set_title("Random Walk Mean Squared Displacement")
+    axs[1].plot(time, msd, "tab:orange")
+    axs[1].plot(time, 2*time, "tab:green")
+    axs[1].legend(["Random walk (num.)", "Random walk (theo.)")
+    axs[1].set_title("Random Walk Mean-squared Displacement")
     axs[1].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[1].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[1].grid()
 
     #setting up the labels  and saving fig
-    plt.setp(axs[0], xlabel='Coordinate X')
-    plt.setp(axs[0], ylabel='Coordinate Y')
-    plt.setp(axs[1], xlabel='Mean Square Displacement')
-    plt.setp(axs[1], ylabel='Timesteps')
+    plt.setp(axs[0], xlabel="Coordinate X")
+    plt.setp(axs[0], ylabel="Coordinate Y")
+    plt.setp(axs[1], xlabel="Timesteps")
+    plt.setp(axs[1], ylabel="Mean-squared Displacement")
     plt.show()
     plt.savefig(output, dpi = 300)
 
