@@ -1,10 +1,10 @@
 default: report.pdf
 
-report.pdf: report.tex CO_CH_length_acf_plot.png msd_plot.png
-	pdflatex report.tex
+report.pdf: report.tex CO_CH_length_acf_plot.png msd_plot.png references.bib
+	latexmk -pdf
 
-CO_CH_length_acf_plot.png: make_plot_acf_bond_length.py CO_acf.txt CH_acf.txt
-	python3 make_plot_acf_bond_length.py CO_acf.txt CH_acf.txt CO_CH_length_acf_plot.png
+CO_CH_length_acf_plot.png: make_plot_acf_bond_length.py CH_acf.txt CO_acf.txt
+	python3 make_plot_acf_bond_length.py CH_acf.txt CO_acf.txt CO_CH_length_acf_plot.png
 
 msd_plot.png: make_plot_msd_random_walk.py msd_random_walk.txt
 	python3 make_plot_msd_random_walk.py msd_random_walk.txt msd_plot.png
