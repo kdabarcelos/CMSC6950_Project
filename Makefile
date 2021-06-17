@@ -22,3 +22,7 @@ clean:
 	#not clean the input file for task 1 test800-1500ns-CO.txt and test800-1500ns-CH.txt
 	find ./ -name "*.txt" -not -name "*test800*" -exec rm {} \;
 	rm *.png
+	latexmk -c
+
+deepclean:
+	rm *.pdf
