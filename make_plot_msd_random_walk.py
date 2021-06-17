@@ -10,6 +10,7 @@
 #importing modules used
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 import sys
 
 #arguments to the command-line
@@ -28,8 +29,13 @@ def main(input, output):
     N=1000
     msd = df["MSD"]
     msd = msd[1:N//2]
-    
-    time = np.arrange(N)[1:N//2]
+
+    time = np.arange(N)[1:N//2]
+
+    path = df[["x", "y"]].to_numpy()
+    start = path[:1]
+    end = path[-1:]
+
     #subplot 1x2, and size with wspace
     fig, axs = plt.subplots(1,2,figsize=(10,5))
     plt.subplots_adjust(wspace=0.30)
@@ -37,6 +43,9 @@ def main(input, output):
     #setting X, Y from df for the first subplot with tile, locators, and grid
     axs[0].plot(df["x"],df["y"])
     axs[0].set_title("2D Random Walk Coordinates")
+    axs[0].plot(start[:,0],start[:,1],c="red",marker="+")
+    axs[0].plot(end[:,0],end[:,1],c="black",marker="o")
+    axs[0].legend(["Path", "Start", "End"])
     axs[0].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].grid()
