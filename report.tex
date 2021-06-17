@@ -16,7 +16,7 @@
 
 \section{Introduction}
 
-Tidynamics \cite{Buyl2018} calculates mean-square displacements (MSD) of a trajectory and correlation functions of input data using the Fast Correlation Algorithm. \cite{kneller1995nmoldyn} This package is beneficial for quantitatively evaluating dynamics of stochastic and molecular simulations from numerical trajectories. The autocorrelation function is a correlation of a variable with itself between two successive time intervals (time lags), while mean-square displacement is a deviation of the position of a certain particle regarding a reference position at time intervals. Both funtions are defined by the respective relations below in tidynamics, where the angle brackets denote an average over time. \cite{kneller1995nmoldyn}
+Tidynamics \cite{Buyl2018} is a tiny and simple package that calculates mean-square displacements (MSD) of a trajectory and correlation functions of a input data using the Fast Correlation Algorithm. \cite{kneller1995nmoldyn} This package is especially beneficial for quantitatively evaluating dynamics of stochastic and molecular simulations from numerical trajectories. The MSD is a deviation of the position of a certain particle regarding a reference position at time intervals. Whereas the other useful computational tools of this software are the autocorrelation function (ACF) and correlation function, in which both are conceptually similar mathematical representations of similarity degree. ACF uses a variable with itself between two successive at two points in time (time lags) and correlation function is the relationship between two different time series at successive time lags.
 
 The data format input and output of tidynamics \cite{Buyl2018} is array, simply depending only on Python and NumPy. The NumPy arrays where the first index indicates the timestep and the second index, in case of correlation function between two time-series, shows the spatial coordinates of the trajectory. Both ACF and MSD are defined by the respective equations below in tidynamics algorithm \cite{Buyl2018}, where the angle brackets denote an average over time. \cite{kneller1995nmoldyn}
 
@@ -32,28 +32,25 @@ MSD(\tau) = \langle (x(\tau) - x(0) )^2 \rangle,
 \end{equation}
 where $x(\tau)$ and $x(0)$ refer to current and reference positions, respectively.
 
-The aim of this project was to implement two computational tasks of dynamical systems from a chosen open source package such as tidynamics\cite{Buyl2018}. For the first task, the autocorrelation funtion was computed for the bond length of C-H and C=O over 700 ns of a Molecular Dynamics (MD) simulation from a certain Tyrosine amino acid. For the second task,a random walk values and its mean-square displacement were generated. Several modules were utilized during the project, including, numpy, pandas, math, sys, and matplotlib. 
+The aim of this project was to implement two computational tasks of dynamical systems from the chosen open source package tidynamics\cite{Buyl2018}. For the first task, the ACF was computed for the bond length of C-H and C=O from a certain Tyrosine over 700 ns of my Molecular Dynamics (MD) simulation of a certain protein. It has been chosen to work with a more applicable data from a MD simulation to test the function in a real system. For the second task, the random walk values and its mean-square displacement were generated. Several modules were utilized during the project, including numpy, pandas, math, sys, and matplotlib.
 
 \section{Results}
 
-The results will be reported for use of Autocorrelation funtion and MSD from tidynamics package\cite{Buyl2018}.
+The results will be reported for use of ACF and MSD from tidynamics package\cite{Buyl2018}.
 
-\subsection{Task 1: Autocorrelation funtion}
+\subsection{Task 1: CF of C=O and C-H bond length over MD time}
 
-\subsubsection{Example 1: Autocorrelation of C=O and C-H bond length over MD time}
-
-The objective of this task was to analyze the C=O and C-H bond stretching motion using its time autocorrelation function. The input data were obtained from a long MD simulation trajectory with total duration of 1.5 ms of a Tyrosine amino acid of a certain protein. A MD simulation is a computer simulation method that allows to predict and visualize at atomistic level the motion of a system (often a protein) of time evolution. The time evolution herein was in nanosecond (ns) from a period of 800-1500 ns to ensure data analysis in the protein equilibrium. The final input files had the C=O and C-H bond lengths in nanometer (nm) over 700 ns time series and an autocorrelation function calculated from tidynamics \cite{Buyl2018}in a time-series. After load the data, time and length were converted into dataframe. The result after applying the ACF in CH and CO lengths by saving into the same dataframe as well. The resulting txt was a intermediate file for further plotting the Figure \ref{acf_plot}. The ACF showed near zero positive autocorrelation for those non-random length data of those types of bonds, which do not vary drastically over long period of simulation.
+The objective of this task was to analyze the C=O and C-H bond stretching motion using its time ACF. The input data were obtained from a long MD simulation trajectory with total duration of 1.5 ms of a Tyrosine amino acid of a certain protein. A MD simulation is a computer simulation method that allows to predict and visualize at atomistic level the motion of a system (often a protein) of time evolution. The time evolution herein was in nanosecond (ns) from a period of 800-1500 ns to ensure data analysis in the protein equilibrium. The final input files had the C=O and C-H bond lengths in nanometer (nm) over 700 ns time series and an autocorrelation function calculated from tidynamics \cite{Buyl2018}in a time-series. After load the data, time and length were converted into a dataframe. The result after applying the ACF in C-H and C=O lengths by saving into the same dataframe. The resulting txt file was a intermediate file for further plotting the Figure \ref{acf_plot}. The ACF showed near zero positive autocorrelation for those length data of those types of bonds, which do not vary drastically over long period of simulation.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{CO_CH_length_acf_plot.png}
-\caption{XXC-H and C=O bond length over Molecular Dynamics time and their autocorrelation function.}
+\caption{C-H and C=O bond length from a Tyrosine amino acid over MD simulation time and their autocorrelation function after 800 ns to ensure the system is in equilibrium.}
 \label{acf_plot}
 \end{figure}
 
+\subsection{Task 2: MSD of a random walk}
 
-\subsection{Task 2: MSD of random walk}
-
-Text
+For the second task, it was generated a random walk of 1000 steps. From the math library sorted random number that multiplied 2*pi to be saved into theta, in which X and Y coordinates were given by cos(theta) and sin(theta), respectively. The (x,y) values were saved into a list and after a dataframe. It gene The MSD were applied in the.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{msd_plot.png}
@@ -61,19 +58,11 @@ Text
 \label{msd_plot}
 \end{figure}
 
-
-
 \section{Conclusions}
 
-Therefore, two computational tasks were performed using tidynamics package to calculate a autocorrelation function and MSD and plot their results in different visualizations. The first task provided a visualization from a trajectory of certain protein, wherein the bond length of C-H and C=O over 700 ns a MD dynamics simulation. It required tidynamics, matplotlib, and pandas python libraries. Whereas the second task [continue].
-
-\bibliography{refs}
-
-\end{document}
-
+Therefore, two computational tasks were performed using tidynamics package to calculate its common tools, such as ACF and MSD, and plot their results in different visualizations. The first task provided a visualization of the bond length of C-H and C=O and its ACF over 700 ns a MD dynamics simulation, data obtained from a trajectory of a Tyrosine. It required tidynamics, matplotlib, and pandas python libraries. Whereas the second task, MSD of a random walk was plotted, in which x and y coordinates were applied cosine (theta) and sine (theta) while theta was randomly sorted and multiplied by 2*pi. It was utilized numpy, math, tidynamics, and pandas libraries.
 
 \bibliographystyle{plain}
 \bibliography{references}
-
 
 \end{document}
