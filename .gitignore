@@ -5,4 +5,5 @@ report.aux
 report.log
 report.fls
 report.bbl
-report.glg
+report.blg
+report.fdb_latexmk
