@@ -44,7 +44,7 @@ def main(input, output):
     #setting MSD from df for the second subplot with tile, locators, and grid
     axs[1].plot(time, msd, "tab:orange")
     axs[1].plot(time, 2*time, "tab:green")
-    axs[1].legend(["Random walk (num.)", "Random walk (theo.)")
+    axs[1].legend(["Random walk (num.)", "Random walk (theo.)"])
     axs[1].set_title("Random Walk Mean-squared Displacement")
     axs[1].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[1].yaxis.set_major_locator(plt.MaxNLocator(7))
