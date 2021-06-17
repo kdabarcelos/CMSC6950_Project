@@ -13,7 +13,7 @@ import tidynamics
 import pandas as pd
 import sys
 
-#arguments to the command-line
+#assigning arguments into args/output for the command-line
 args = sys.argv[1:]
 output = args[0]
 
@@ -23,8 +23,8 @@ def randomwalk(x,y):
     Generate 2D random walk as (x,y) coordinates
     '''
     theta=2*math.pi*np.random.rand()
-    x+=math.cos(theta);
-    y+=math.sin(theta);
+    x+=math.cos(theta)
+    y+=math.sin(theta)
     #funtion returns new random (x,y) coordinates
     return (x,y)
 
@@ -33,6 +33,7 @@ def main(output):
     '''
     Create intermediate file with (x,y) coordinates, and MSD in 1000 steps
     '''
+    #initiating an array to accommodate (x,y) 
     a = np.zeros((1000,2), dtype=np.float64)
     #starting from origin
     x, y = 0., 0.
