@@ -2,6 +2,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 
+
 \title{CMSC6950 Project Report: Tidynamics}
 \author{Karina Barcelos}
 \date{Spring - June 2021}
@@ -32,7 +33,7 @@ MSD(\tau) = \langle (x(\tau) - x(0) )^2 \rangle,
 \end{equation}
 where $x(\tau)$ and $x(0)$ refer to current and reference positions, respectively.
 
-The aim of this project was to implement two computational tasks of dynamical systems from the chosen open source package tidynamics \cite{Buyl2018}. For the first task, the ACF was computed for the bond length of C-H and C=O from a certain Tyrosine over 200 ns (during 800-1000 ns) of my input Molecular Dynamics (MD) simulation data of a certain protein. This input data have been chosen to work with a more applicable input data to test that function in a real MD system. For the second task, the random walk values from coordinates x = cos $\theta$ and y = sin $\theta$ with angle varying $\theta$ between 0 $\leq$ $\theta$ $\leq$ $2\pi$ in a range of N = 1000 steps and its 2D random walk MSD were generated. Several modules were utilized during the project, including numpy, pandas, math, sys, and matplotlib.
+The aim of this project was to implement two computational tasks of dynamical systems from the chosen open source package tidynamics \cite{Buyl2018}. For the first task, the ACF was computed for the bond length of C-H and C=O from a certain Tyrosine over 200 ns (during 800-1000 ns) of my input Molecular Dynamics (MD) simulation data of a certain protein. This input data have been chosen to present a more applicable input data to test that function in a real MD system. For the second task, the random walk values from coordinates x = cos $\theta$ and y = sin $\theta$ with angle varying $\theta$ between 0 $\leq$ $\theta$ $\leq$ $2\pi$ in a range of N = 1000 steps and its 2D random walk MSD were generated. Sinusoidal and cosinusoidal were employed to x and y coordinates to demonstrate a more circular-like walk curve. Several modules were utilized during the project, including numpy, pandas, math, sys, and matplotlib.
 
 \section{Results}
 
@@ -43,6 +44,7 @@ The results will be reported for use of ACF and MSD from tidynamics package \cit
 The objective of this task was to analyze the C=O and C-H bond stretching motion using its time ACF. The input data were obtained from a long MD simulation trajectory with total duration of 1.5 ms of a Tyrosine amino acid of a certain protein. A MD simulation is a computer simulation method that allows to predict and visualize at atomistic level the motion of a system (often a protein) of time evolution. The time evolution herein was in nanosecond (ns) from a period of 800-1500 ns to ensure data analysis in the protein equilibrium; however, the plot was limited to 800-1000 ns to better visualization. The final input files had the C=O and C-H bond lengths in nanometer (nm) over 200 ns time series and an autocorrelation function calculated from tidynamics \cite{Buyl2018} in a time-series. In the ACF first script, it loaded the data using numpy module, time and length and those values were converted into a dataframe using pandas module. The result dataframe after applying the ACF in C-H and C=O lengths using tydinams were added to a new column in the dataframe. The ACF first sript resulted in two txt intermediate files, each one for each type of bond (i.e., CH and CO). The ACF second script utilized these output files for reading (using pandas) and plotting the Figure ~\ref{fig:acf_plot} using matplotlib. The ACF showed near zero positive autocorrelation for those bond length data, which do not vary drastically over a long period of simulation.
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=\linewidth]{CO_CH_length_acf_plot.png}
 \caption{C-H and C=O bond length from a Tyrosine amino acid over MD simulation time and their ACF after 800 ns to ensure the system is in equilibrium.}
 \label{fig:acf_plot}
@@ -59,6 +61,7 @@ MSD(\tau) \approx 2 D \tau
 where D and t are difusion constant and time, respectively.
 
 \begin{figure}[H]
+\centering
 \includegraphics[width=\linewidth]{msd_plot.png}
 \caption{2D random walk in a (x,y) coordinates and its mean-squared displacement.}
 \label{fig:msd_plot}
