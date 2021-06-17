@@ -23,6 +23,7 @@ clean:
 	find ./ -name "*.txt" -not -name "*test800*" -exec rm {} \;
 	rm *.png
 	latexmk -c
+	rm *.bbl
 
 deepclean:
 	rm *.pdf
