@@ -27,14 +27,15 @@ def main(input1, input2, output):
     fig, axs = plt.subplots(2,2,figsize=(7,6))
     plt.subplots_adjust(wspace=0.55, hspace=0.4)
 
-    axs[0, 0].plot(dfCH["Time"],dfCH["Length"])
+    axs[0, 0].plot(dfCH["Time"],dfCH["Length"], color="green")
     axs[0, 0].set_xlim([800,1000])
     axs[0, 0].set_title("CH bond length")
     axs[0, 0].xaxis.set_major_locator(plt.MaxNLocator(4))
     axs[0, 0].yaxis.set_major_locator(plt.MaxNLocator(6))
     axs[0, 0].grid()
 
-    axs[0, 1].plot(dfCH["AutoCorr"], 'tab:orange')
+    axs[0, 1].stem(dfCH["AutoCorr"][::250], linefmt="C2--",markerfmt="C2d")
+    axs[0, 1].set_ylim([0.0089,0.009030])
     axs[0, 1].set_title("Autocorrelation of CH")
     axs[0, 1].xaxis.set_major_locator(plt.MaxNLocator(6))
     axs[0, 1].yaxis.set_major_locator(plt.MaxNLocator(6))
@@ -47,7 +48,8 @@ def main(input1, input2, output):
     axs[1, 0].yaxis.set_major_locator(plt.MaxNLocator(6))
     axs[1, 0].grid()
 
-    axs[1, 1].plot(dfCO["AutoCorr"], 'tab:orange')
+    axs[1, 1].stem(dfCO["AutoCorr"][::250], linefmt="C0--",markerfmt="C0d")
+    axs[1, 1].set_ylim([0.01509,0.01526])
     axs[1, 1].set_title("Autocorrelation of CO")
     axs[1, 1].xaxis.set_major_locator(plt.MaxNLocator(6))
     axs[1, 1].yaxis.set_major_locator(plt.MaxNLocator(6))
