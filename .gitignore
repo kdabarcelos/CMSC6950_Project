@@ -3,4 +3,6 @@
 tidynamics/
 report.aux
 report.log
-
+report.fls
+report.bbl
+report.glg
