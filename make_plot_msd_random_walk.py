@@ -28,10 +28,13 @@ def main(input, output):
 
     N=1000
     msd = df["MSD"]
+    #get the linear scale and better visualization; decreasing timesteps by 2
     msd = msd[1:N//2]
-
+    #adjust scale
+    msd /= 0.5
+    #creating timestep 
     time = np.arange(N)[1:N//2]
-
+    #to add start and end points; converting it back from df into array
     path = df[["x", "y"]].to_numpy()
     start = path[:1]
     end = path[-1:]
@@ -43,20 +46,20 @@ def main(input, output):
     #setting X, Y from df for the first subplot with tile, locators, and grid
     axs[0].plot(df["x"],df["y"])
     axs[0].set_title("2D Random Walk Coordinates")
-    axs[0].plot(start[:,0],start[:,1],c="red",marker="x",markersize=10,markeredgewidth=2.5)
-    axs[0].plot(end[:,0],end[:,1],c="black",marker="o",markersize=7,markeredgewidth=2.5)
+    axs[0].plot(start[0,0],start[0,1],c="black",marker="o",markersize=7,markeredgewidth=2.5)
+    axs[0].plot(end[0,0],end[0,1],c="red",marker="x",markersize=10,markeredgewidth=2.5)
     axs[0].legend(["Path", "Start", "End"])
     axs[0].xaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].grid()
 
-    #setting MSD from df for the second subplot with tile, locators, and grid
+    #setting MSD from df for the second subplot with tile, locators, and grid in log scale
     axs[1].plot(time, msd, "tab:orange")
     axs[1].plot(time, 2*time, "tab:green")
     axs[1].legend(["Random walk (num.)", "Random walk (theo.)"])
     axs[1].set_title("Random Walk Mean-squared Displacement")
-    axs[1].xaxis.set_major_locator(plt.MaxNLocator(7))
-    axs[1].yaxis.set_major_locator(plt.MaxNLocator(7))
+    axs[1].set_xscale("log")
+    axs[1].set_yscale("log")
     axs[1].grid()
 
     #setting up the labels  and saving fig
