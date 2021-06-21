@@ -1,6 +1,6 @@
 default: report.pdf
 
-report.pdf: report.tex CO_CH_length_acf_plot.png msd_plot.png references.bib
+report.pdf: report.tex CO_CH_length_acf_plot.png msd_plot.png keywords_acf.png references.bib
 	latexmk -pdf
 
 CO_CH_length_acf_plot.png: make_plot_acf_bond_length.py CH_acf.txt CO_acf.txt
@@ -8,6 +8,9 @@ CO_CH_length_acf_plot.png: make_plot_acf_bond_length.py CH_acf.txt CO_acf.txt
 
 msd_plot.png: make_plot_msd_random_walk.py msd_random_walk.txt
 	python3 make_plot_msd_random_walk.py msd_random_walk.txt msd_plot.png
+
+keywords_acf.png: download_keywords_acf.py
+	python3 download_keywords_acf.py kw_acf.txt
 
 CO_acf.txt: create_acf_bond_length.py test800-1500ns-CO.txt
 	python3 create_acf_bond_length.py test800-1500ns-CO.txt CO_acf.txt
