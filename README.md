@@ -40,7 +40,7 @@ conda activate tidynamics
 Install Python, NumPy, Matplotlib, Pytest, and Pandas (dependencies) to use tidynamics:
 
 ```
-conda install python numpy matplotlib pytest pandas
+conda install python numpy matplotlib pytest pandas pytrends
 ```
 
 Install tidynamics:
