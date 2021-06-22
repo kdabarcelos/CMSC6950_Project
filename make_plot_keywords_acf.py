@@ -5,7 +5,7 @@
         #It is necessary to run download_keywords_acf.py first before plotting to obtain the intermediate files
 
 #Run command example [python3 script.py input_file.txt output_figure_name.png]
-        #$python3 download_keywords_acf.py kw_acf.txt kw_acf.png
+        #$python3 make_plot_keywords.py kw_acf.txt kw_acf.png
 
 #importing modules used
 import matplotlib.pyplot as plt
@@ -26,34 +26,38 @@ def main(input, output):
     #reading/importing input file
     df = pd.read_csv(input)
 
-    #subplot 1x2, and size with wspace
-    fig, axs = plt.subplots(1,2,figsize=(10,5))
-    plt.subplots_adjust(wspace=0.30)
+    df = df.set_index("date")
+
+    fig, axs = plt.subplots(2,1,figsize=(10,8))
+    plt.subplots_adjust(wspace=0.20, hspace=0.4)
 
     #setting X, Y from df for the first subplot with tile, locators, and grid
-    axs[0].plot(df["x"],df["y"])
-    axs[0].set_title("2D Random Walk Coordinates")
-    axs[0].plot(start[0,0],start[0,1],c="black",marker="o",markersize=7,markeredgewidth=2.5)
-    axs[0].plot(end[0,0],end[0,1],c="red",marker="x",markersize=10,markeredgewidth=2.5)
-    axs[0].legend(["Path", "Start", "End"])
-    axs[0].xaxis.set_major_locator(plt.MaxNLocator(7))
+    axs[0].plot(df.index,df.diet,'k')
+    axs[0].plot(df.index,df.gym,'r')
+    axs[0].plot(df.index,df.weight,'b')
+    axs[0].plot(df.index,df.travel,'g')
+    axs[0].plot(df.index,df.money,'y')
+    axs[0].legend(['Diet', 'Gym','Weight','Travel','Money'])
+    axs[0].set_title("New Year's Google Search of Keywords during 2004-2020 in Canada")
     axs[0].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[0].grid()
 
-    #setting MSD from df for the second subplot with tile, locators, and grid in log scale
-    axs[1].plot(time, msd, "tab:orange")
-    axs[1].plot(time, 2*time, "tab:green")
-    axs[1].legend(["Random walk (num.)", "Random walk (theo.)"])
-    axs[1].set_title("Random Walk Mean-squared Displacement")
-    axs[1].set_xscale("log")
-    axs[1].set_yscale("log")
+    #setting MSD from df for the second subplot with tile, locators, and grid
+    axs[1].plot(range(len(df.diet)),df.diet_autocorr,'k')
+    axs[1].set_title("ACF of Periodic Keywords Popularity")
+    axs[1].plot(range(len(df.gym)),df.gym_autocorr,'r')
+    axs[1].plot(range(len(df.weight)),df.weight_autocorr,'b')
+    axs[1].plot(range(len(df.travel)),df.travel_autocorr,'g')
+    axs[1].plot(range(len(df.money)),df.money_autocorr,'y')
+    axs[1].xaxis.set_major_locator(plt.MaxNLocator(9))
+    axs[1].yaxis.set_major_locator(plt.MaxNLocator(7))
     axs[1].grid()
 
     #setting up the labels  and saving fig
-    plt.setp(axs[0], xlabel="Coordinate X")
-    plt.setp(axs[0], ylabel="Coordinate Y")
-    plt.setp(axs[1], xlabel="Timesteps")
-    plt.setp(axs[1], ylabel="Mean-squared Displacement")
+    plt.setp(axs[0], xlabel='Year')
+    plt.setp(axs[0], ylabel='Popularity')
+    plt.setp(axs[1], xlabel='Lag')
+    plt.setp(axs[1], ylabel='Autocorrelation')
     plt.show()
     plt.savefig(output, dpi = 300)
 

@@ -27,8 +27,8 @@ def main(input1, input2, output):
     dfCH = pd.read_csv(input1)
     dfCO = pd.read_csv(input2)
 
-    fig, axs = plt.subplots(2,2,figsize=(7,6))
-    plt.subplots_adjust(wspace=0.55, hspace=0.4)
+    fig, axs = plt.subplots(2,2,figsize=(7,5))
+    plt.subplots_adjust(wspace=0.55, hspace=0.5)
 
     axs[0, 0].plot(dfCH["Time"],dfCH["Length"], color="green")
     axs[0, 0].set_xlim([800,1000])

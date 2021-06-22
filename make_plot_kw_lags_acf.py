@@ -29,8 +29,8 @@ def main(input, output):
     plt.rcParams.update({'ytick.left' : False, 'axes.titlepad':10})
     kw_list = ['diet', 'gym','weight','travel','money']     
 
-    #fig, axes = plt.subplots(1, 5, figsize=(15,5), sharex=True, sharey=True)
-    fig, axs = plt.subplots(1,5,figsize=(20,10))
+    
+    fig, axs = plt.subplots(1,5,figsize=(15,5))
     plt.subplots_adjust(wspace=0.5, hspace=0.2)
 
     plt.subplot(151)

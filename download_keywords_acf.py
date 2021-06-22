@@ -4,7 +4,7 @@
         #It generates an intermediate file with acf results from bond length
 
 #Run command-line [python3 script.py output_file_name.txt]
-        #Example: $python3 create_acf_keyword_trends.py acf_keyword_trends.txt
+        #Example: $ python3 download_keywords_acf.py kw_acf.txt
 
 #Where the input data are from?
 	#The keyword data denote values calculated on a scale from 0 to 100, where 100 is the location with the most popularity 
@@ -47,7 +47,7 @@ def main(output):
     df["money_autocorr"] = (tidynamics.acf(df[["money"]]) / float(tidynamics.acf(df[["money"]]).max()))
 
     #save output with comma delimiter and headers
-    df.to_csv(output, index=False)
+    df.to_csv(output)
 
 if __name__ == "__main__":
     main(output)
