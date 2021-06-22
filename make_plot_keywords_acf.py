@@ -24,9 +24,7 @@ def main(input, output):
     Read keyword intermediate file created by download_keywords_acf.py and plot figure of each keyword popularity and its ACF
     '''
     #reading/importing input file
-    df = pd.read_csv(input)
-
-    df = df.set_index("date")
+    df = pd.read_csv(input,parse_dates=["date"],index_col=["date"])
 
     fig, axs = plt.subplots(2,1,figsize=(10,8))
     plt.subplots_adjust(wspace=0.20, hspace=0.4)
